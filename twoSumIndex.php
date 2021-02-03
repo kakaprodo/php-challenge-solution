@@ -3,28 +3,28 @@
 class Solution {
 
     /**
-    * @param Integer[] $nums
-    * @param Integer $target
-    * @return Integer[]
-    */
+     * @param Integer[] $nums
+     * @param Integer $target
+     * @return Integer[]
+     */
     function twoSum($nums, $target) {
         
-        foreach ($nums as $num) {
+        foreach ($nums as $key1 => $num) {
 
-            foreach ($nums as $num2) {
+            foreach ($nums as $key2 => $num2) {
                 $nextArrNum = next($nums);
                 $sum = $num + $nextArrNum;
 
                 if ($sum == $target) {
-                    $firstIndice = array_search($num, $nums);
-                    $secondIndice = array_search($nextArrNum, $nums);
+                    $firstIndice = $key1;
+                    $secondIndice = $key2 + 1;
 
                     if ($firstIndice != $secondIndice) return [
-                        array_search($num, $nums), 
-                        array_search($nextArrNum, $nums)
+                        $firstIndice, 
+                        $secondIndice
                     ];
                 } 
-                
+
             }
         }
 
